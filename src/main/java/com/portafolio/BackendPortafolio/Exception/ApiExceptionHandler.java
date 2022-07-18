@@ -55,6 +55,8 @@ public class ApiExceptionHandler {
         System.out.println(exception.getClass());
         System.out.println(exception.getCause());
         return errorMessage;
+
+
     }
 
 }
