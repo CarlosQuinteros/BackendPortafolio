@@ -1,11 +1,9 @@
 package com.portafolio.BackendPortafolio.Exception;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -40,6 +38,16 @@ public class ApiExceptionHandler {
         ErrorMessage errorMessage = new ErrorMessage(exception, request.getRequestURI());
         return errorMessage;
     }
+
+    @ResponseStatus(HttpStatus.FORBIDDEN)
+    @ExceptionHandler(AccessDeniedException.class)
+    @ResponseBody
+    public ErrorMessage accessDeniedException(HttpServletRequest request, Exception exception){
+        ErrorMessage errorMessage = new ErrorMessage(exception, request.getRequestURI());
+        errorMessage.setMessage("Acceso denegado");
+        return errorMessage;
+    }
+
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ExceptionHandler(Exception.class)
     @ResponseBody
