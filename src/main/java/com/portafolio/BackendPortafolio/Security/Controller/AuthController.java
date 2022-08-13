@@ -54,10 +54,4 @@ public class AuthController {
         }
     }
 
-    @GetMapping("/hola")
-    @PreAuthorize("permitAll()")
-    public ResponseEntity<Message> hola(){
-        return new ResponseEntity<>(new Message("Permitall funciona"),HttpStatus.OK);
-    }
-
 }

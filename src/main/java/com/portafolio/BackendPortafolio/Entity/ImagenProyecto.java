@@ -1,5 +1,7 @@
 package com.portafolio.BackendPortafolio.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
@@ -15,12 +17,13 @@ public class ImagenProyecto {
     @NotNull
     private String descripcion;
 
+    @JsonIgnore
     @ManyToOne
     private Proyecto proyecto;
 
     public ImagenProyecto(){}
 
-    public ImagenProyecto(@NotNull String url, @NotNull String descripcion, Proyecto proyecto) {
+    public ImagenProyecto(@NotNull String url, @NotNull String descripcion, @NotNull Proyecto proyecto) {
         this.url = url;
         this.descripcion = descripcion;
         this.proyecto = proyecto;

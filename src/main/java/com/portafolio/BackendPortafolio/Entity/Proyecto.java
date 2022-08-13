@@ -72,4 +72,9 @@ public class Proyecto {
     public void setUrlRepositorio(String urlRepositorio) {
         this.urlRepositorio = urlRepositorio;
     }
+
+    public Persona getPersona() {
+        return persona;
+    }
+
 }

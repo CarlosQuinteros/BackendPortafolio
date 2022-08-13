@@ -4,6 +4,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
+import java.time.Period;
 
 @Entity
 public class Persona {
@@ -36,6 +37,9 @@ public class Persona {
 
     @OneToOne
     private Domicilio domicilio;
+
+    @Transient
+    private Integer edad;
 
     public Persona(){}
 
@@ -138,5 +142,9 @@ public class Persona {
 
     public void setDomicilio(Domicilio domicilio) {
         this.domicilio = domicilio;
+    }
+
+    public Integer getEdad() {
+        return Period.between(fechaNacimiento, LocalDate.now()).getYears();
     }
 }

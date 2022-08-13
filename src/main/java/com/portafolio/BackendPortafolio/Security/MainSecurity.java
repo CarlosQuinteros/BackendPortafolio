@@ -6,6 +6,7 @@ import com.portafolio.BackendPortafolio.Security.Service.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.WebSecurityConfigurer;
@@ -56,7 +57,20 @@ public class MainSecurity extends WebSecurityConfigurerAdapter {
         http.cors().and().csrf().disable()
                 .authorizeRequests()
                 .antMatchers(
-                        "/auth/**"
+                        "/auth/**",
+                        "/envio-email/**"
+                ).permitAll()
+                .antMatchers(HttpMethod.GET,
+                        "/habilidades",
+                        "/educaciones",
+                        "/experiencias-laborales",
+                        "/proyectos",
+                        "/proyectos/{id}",
+                        "/personas",
+                        "/personas/{id}/educaciones",
+                        "/personas/{id}/experiencias-laborales",
+                        "/personas/{id}/habilidades",
+                        "/{id}/proyectos"
                 ).permitAll()
                 .anyRequest().authenticated()
                 .and()
