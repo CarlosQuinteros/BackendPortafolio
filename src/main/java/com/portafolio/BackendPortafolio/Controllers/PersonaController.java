@@ -90,10 +90,15 @@ public class PersonaController {
     }
 
     @GetMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Persona> detallePersona(@PathVariable Long id){
         Persona persona = personaService.obtenerPersona(id);
         return new ResponseEntity<>(persona, HttpStatus.OK);
+    }
+
+    @GetMapping("/dni/{documento}")
+    public ResponseEntity<Persona> detallePersonaPorDocumento(@PathVariable String documento){
+        Persona persona =  personaService.obtenerPersonaPorDni(documento);
+        return new ResponseEntity<>(persona,HttpStatus.OK);
     }
 
     @GetMapping("/{id}/educaciones")

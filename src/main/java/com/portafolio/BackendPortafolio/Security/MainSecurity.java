@@ -65,6 +65,8 @@ public class MainSecurity extends WebSecurityConfigurerAdapter {
                         "/proyectos",
                         "/proyectos/{id}",
                         "/personas",
+                        "/personas/{id}",
+                        "/personas/dni/{documento}",
                         "/personas/{id}/educaciones",
                         "/personas/{id}/experiencias-laborales",
                         "/personas/{id}/habilidades",

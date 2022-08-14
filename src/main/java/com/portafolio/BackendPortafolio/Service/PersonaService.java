@@ -68,4 +68,10 @@ public class PersonaService implements IPersonaService {
         return personaRepository.findById(id)
                 .orElseThrow(()-> new ResourceNotFoundException("No existe la persona con id: " + id));
     }
+
+    @Override
+    public Persona obtenerPersonaPorDni(String dni) {
+        return personaRepository.findByDocumento(dni)
+                .orElseThrow(() -> new ResourceNotFoundException("No existe la persona con dni: " + dni));
+    }
 }

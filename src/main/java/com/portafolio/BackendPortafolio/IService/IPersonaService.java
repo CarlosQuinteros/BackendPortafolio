@@ -11,4 +11,5 @@ public interface IPersonaService {
     public Persona editarPersona(Long idPersonaEditar, Persona persona);
     public void eliminarPersona(Long id);
     public Persona obtenerPersona(Long id);
+    public Persona obtenerPersonaPorDni(String dni);
 }

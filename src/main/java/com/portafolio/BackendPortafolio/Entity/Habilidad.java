@@ -1,5 +1,7 @@
 package com.portafolio.BackendPortafolio.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
@@ -21,6 +23,7 @@ public class Habilidad {
 
     @NotNull
     @ManyToOne
+    @JsonIgnore
     private Persona persona;
 
     public  Habilidad(){}

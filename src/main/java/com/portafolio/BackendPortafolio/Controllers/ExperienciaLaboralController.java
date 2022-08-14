@@ -53,7 +53,7 @@ public class ExperienciaLaboralController {
 
     @PutMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<?> crearExperienciaLaboral(@PathVariable Long id, @Valid @RequestBody ExperienciaDto experienciaDto, BindingResult bindingResult){
+    public ResponseEntity<?> editarExperienciaLaboral(@PathVariable Long id, @Valid @RequestBody ExperienciaDto experienciaDto, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
             throw new InvalidDataException(bindingResult);
         }

@@ -35,11 +35,12 @@ public class Persona {
 
     private String telefono;
 
-    @OneToOne
-    private Domicilio domicilio;
-
     @Transient
     private Integer edad;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    private Domicilio domicilio;
+
 
     public Persona(){}
 

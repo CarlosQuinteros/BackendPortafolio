@@ -29,7 +29,7 @@ public class ExperienciaDto {
     @JsonFormat(pattern="yyyy-MM-dd")
     private String fechaDesde;
 
-    @NotBlank(message = "La fecha hasta es obligatoria")
+    //@NotBlank(message = "La fecha hasta es obligatoria")
     @JsonFormat(pattern="yyyy-MM-dd")
     private String fechaHasta;
 
