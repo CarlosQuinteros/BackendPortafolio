@@ -77,4 +77,7 @@ public class Proyecto {
         return persona;
     }
 
+    public List<ImagenProyecto> getImagenes() {
+        return imagenes;
+    }
 }

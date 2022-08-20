@@ -33,6 +33,7 @@ public class ImagenProyectoService  implements IImagenProyectoService {
     @Override
     public void eliminarImagenProyecto(Long id) {
         ImagenProyecto imagenProyecto = obtenerImagenProyecto(id);
+        imagenProyecto.getProyecto().getImagenes().remove(imagenProyecto);
         imagenProyectoRepository.deleteById(imagenProyecto.getId());
     }
 

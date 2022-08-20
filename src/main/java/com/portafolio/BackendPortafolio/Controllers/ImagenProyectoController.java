@@ -18,6 +18,7 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/imagen-proyectos")
+@CrossOrigin("*")
 public class ImagenProyectoController {
 
     @Autowired
