@@ -70,6 +70,7 @@ public class MainSecurity extends WebSecurityConfigurerAdapter {
                         "/personas/{id}/educaciones",
                         "/personas/{id}/experiencias-laborales",
                         "/personas/{id}/habilidades",
+                        "/personas/{id}/proyectos",
                         "/{id}/proyectos"
                 ).permitAll()
                 .anyRequest().authenticated()
