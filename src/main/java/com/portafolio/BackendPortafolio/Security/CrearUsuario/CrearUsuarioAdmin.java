@@ -20,7 +20,9 @@ public class CrearUsuarioAdmin implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
+        /*
         Usuario usuarioAdmin = new Usuario("carloscq","carlos.dante.quinteros@gmail.com",passwordEncoder.encode("carloscq17*"), Rol.ROLE_ADMIN);
-        //usuarioService.guardarUsuario(usuarioAdmin);
+        usuarioService.guardarUsuario(usuarioAdmin);
+        */
     }
 }
