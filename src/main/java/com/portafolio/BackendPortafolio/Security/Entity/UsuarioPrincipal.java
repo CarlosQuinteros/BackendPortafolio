@@ -25,7 +25,9 @@ public class UsuarioPrincipal implements UserDetails {
 
     public static UsuarioPrincipal build(Usuario usuario){
         GrantedAuthority authority = new SimpleGrantedAuthority(usuario.getRol().name());
-        return new UsuarioPrincipal(usuario.getUserName(), usuario.getEmail(), usuario.getPassword(), List.of(authority));
+        List<GrantedAuthority> authorities = new ArrayList<>();
+        authorities.add(authority);
+        return new UsuarioPrincipal(usuario.getUserName(), usuario.getEmail(), usuario.getPassword(), authorities);
     }
 
     @Override
