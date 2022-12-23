@@ -25,10 +25,11 @@ public class CrearUsuarioAdmin implements CommandLineRunner {
     public void run(String... args) throws Exception {
 
 
-        Usuario usuarioAdmin = usuarioService.obtenerUsuarioPorUserNameOEmail("carloscq");
+        /*Usuario usuarioAdmin = usuarioService.obtenerUsuarioPorUserNameOEmail("carloscq");
         System.out.println(usuarioAdmin.getUserName() + ": " + usuarioAdmin.getEmail());
         usuarioAdmin.setPassword(passwordEncoder.encode("CFMcarloscq17*"));
         usuarioRepository.save(usuarioAdmin);
+        */
 
 
         /*Usuario usuarioAdmin = new Usuario("carloscq","carlos.dante.quinteros@gmail.com",passwordEncoder.encode("carloscq17*"), Rol.ROLE_ADMIN);
