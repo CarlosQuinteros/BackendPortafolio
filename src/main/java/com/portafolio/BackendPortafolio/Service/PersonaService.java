@@ -52,7 +52,9 @@ public class PersonaService implements IPersonaService {
         personaEditar.setTelefono(persona.getTelefono());
         personaEditar.setUrlCurriculum(persona.getUrlCurriculum());
         personaEditar.setUrlImagen(persona.getUrlImagen());
-        personaEditar.setDomicilio(persona.getDomicilio());
+        personaEditar.getDomicilio().setCalle(persona.getDomicilio().getCalle());
+        personaEditar.getDomicilio().setNumero(persona.getDomicilio().getNumero());
+        personaEditar.getDomicilio().setLocalidad(persona.getDomicilio().getLocalidad());
 
         return personaRepository.save(personaEditar);
     }
