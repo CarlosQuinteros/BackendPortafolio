@@ -6,6 +6,7 @@ import com.portafolio.BackendPortafolio.Entity.*;
 import com.portafolio.BackendPortafolio.Exception.InvalidDataException;
 import com.portafolio.BackendPortafolio.Service.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -35,6 +36,9 @@ public class PersonaController {
 
     @Autowired
     private ProyectoService proyectoService;
+
+    @Value("${spring.profiles.active}")
+    private String perfil;
 
     @GetMapping("")
     @PreAuthorize("hasRole('ADMIN')")
@@ -91,6 +95,7 @@ public class PersonaController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Persona> detallePersona(@PathVariable Long id){
+        System.out.println("Perfil ejectutandose: " + perfil);
         Persona persona = personaService.obtenerPersona(id);
         return new ResponseEntity<>(persona, HttpStatus.OK);
     }
