@@ -37,9 +37,6 @@ public class PersonaController {
     @Autowired
     private ProyectoService proyectoService;
 
-    @Value("${spring.profiles.active}")
-    private String perfil;
-
     @GetMapping("")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<List<Persona>> listadoDePersonas(){
@@ -95,7 +92,6 @@ public class PersonaController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Persona> detallePersona(@PathVariable Long id){
-        System.out.println("Perfil ejectutandose: " + perfil);
         Persona persona = personaService.obtenerPersona(id);
         return new ResponseEntity<>(persona, HttpStatus.OK);
     }
